@@ -49,7 +49,7 @@ Run the test classes with JUnit Test.
     `TariffTest.java` e 
     `CalculateTariffServiceTest.java`
 
-## Covarage
+## Coverage
 
 `90% code coverage.`
 
