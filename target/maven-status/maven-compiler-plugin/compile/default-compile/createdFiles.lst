@@ -1,1 +1,15 @@
-com\vortex\fullstack\FullStackApplication.class
+br\com\vortx\tariff\service\CalculateTariffService.class
+br\com\vortx\tariff\repository\TariffRepository.class
+br\com\vortx\tariff\controller\CalculateTariffController.class
+br\com\vortx\tariff\dto\ResponseDTO.class
+br\com\vortx\tariff\enumeration\PlanEnum.class
+br\com\vortx\tariff\exception\ExceptionResponse.class
+br\com\vortx\tariff\exception\InvalidDataException.class
+br\com\vortx\tariff\configuration\SwaggerConfig.class
+br\com\vortx\tariff\constants\GenericConstants.class
+br\com\vortx\tariff\model\Tariff.class
+br\com\vortx\tariff\exception\CustomMesageException.class
+br\com\vortx\tariff\dto\RequestDTO.class
+br\com\vortx\tariff\common\Utils.class
+br\com\vortx\tariff\Application.class
+br\com\vortx\tariff\configuration\SwaggerConfig$1.class

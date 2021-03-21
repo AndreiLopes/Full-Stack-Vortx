@@ -1,1 +1,7 @@
-D:\DEVELOPMENT\workspace\Full-Stack-Vortx\src\test\java\com\vortex\fullstack\FullStackApplicationTests.java
+D:\DEVELOPMENT\workspace\Calculate-Tariff-Vortx\src\test\java\br\com\vortx\tariff\ApplicationTests.java
+D:\DEVELOPMENT\workspace\Calculate-Tariff-Vortx\src\test\java\br\com\vortx\tariff\model\TariffTest.java
+D:\DEVELOPMENT\workspace\Calculate-Tariff-Vortx\src\test\java\br\com\vortx\tariff\dto\RequestDTOTest.java
+D:\DEVELOPMENT\workspace\Calculate-Tariff-Vortx\src\test\java\br\com\vortx\tariff\dto\ResponseDTOTest.java
+D:\DEVELOPMENT\workspace\Calculate-Tariff-Vortx\src\test\java\br\com\vortx\tariff\exception\ExceptionResponseTest.java
+D:\DEVELOPMENT\workspace\Calculate-Tariff-Vortx\src\test\java\br\com\vortx\tariff\service\CalculateTariffServiceTest.java
+D:\DEVELOPMENT\workspace\Calculate-Tariff-Vortx\src\test\java\br\com\vortx\tariff\controller\CalculateTariffControllerTest.java

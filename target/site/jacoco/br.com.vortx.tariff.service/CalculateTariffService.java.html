@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CalculateTariffService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">calculate-tariff-vortx</a> &gt; <a href="index.source.html" class="el_package">br.com.vortx.tariff.service</a> &gt; <span class="el_source">CalculateTariffService.java</span></div><h1>CalculateTariffService.java</h1><pre class="source lang-java linenums">package br.com.vortx.tariff.service;
+
+import br.com.vortx.tariff.enumeration.PlanEnum;
+import br.com.vortx.tariff.constants.GenericConstants;
+import br.com.vortx.tariff.dto.RequestDTO;
+import br.com.vortx.tariff.dto.ResponseDTO;
+import br.com.vortx.tariff.exception.InvalidDataException;
+import br.com.vortx.tariff.model.Tariff;
+import br.com.vortx.tariff.repository.TariffRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.Optional;
+
+/**
+ * Service class for calculating tariffs for each plan.
+ */
+@Service
+<span class="fc" id="L21">public class CalculateTariffService {</span>
+
+    @Autowired
+    private TariffRepository repository;
+
+    public ResponseDTO calculateTariff(RequestDTO dto) {
+
+<span class="fc bfc" id="L28" title="All 2 branches covered.">        if (!isPlanValid(dto.getPlan())) {</span>
+<span class="fc" id="L29">            throw new InvalidDataException(GenericConstants.INVALID_PLAN_ERROR);</span>
+        }
+
+<span class="fc" id="L32">        Optional&lt;Tariff&gt; tariff = getFixedTariff(dto.getOrigin(), dto.getDestiny());</span>
+<span class="fc" id="L33">        tariff.orElseThrow(() -&gt; new InvalidDataException(GenericConstants.DDD_NOT_FOUND_ERROR));</span>
+
+<span class="fc" id="L35">        Double minutes = Math.ceil(dto.getMinutes());</span>
+
+<span class="fc" id="L37">        BigDecimal valueWithPlan = calculateValueTariffWithTalkMore(tariff.get().getValue(),</span>
+<span class="fc" id="L38">                minutes, dto.getPlan());</span>
+
+<span class="fc" id="L40">        BigDecimal valueWithoutPlan = calculateValueTariffWithoutTalkMore(tariff.get().getValue(),</span>
+                minutes);
+
+<span class="fc" id="L43">        return new ResponseDTO(valueWithPlan,valueWithoutPlan);</span>
+    }
+
+    private BigDecimal calculateValueTariffWithTalkMore(BigDecimal value, Double minutes, Integer plan) {
+
+<span class="fc" id="L48">        Double extraMinutes = minutes - plan.doubleValue();</span>
+
+<span class="fc bfc" id="L50" title="All 2 branches covered.">        if (extraMinutes.compareTo(Double.valueOf(0)) &lt; 0) {</span>
+<span class="fc" id="L51">            extraMinutes = 0D;</span>
+        }
+
+<span class="fc" id="L54">        BigDecimal total = value.add(value.multiply(BigDecimal.valueOf(0.1)))</span>
+<span class="fc" id="L55">                .multiply(BigDecimal.valueOf(extraMinutes))</span>
+<span class="fc" id="L56">                .setScale(2, RoundingMode.HALF_UP);</span>
+
+<span class="fc" id="L58">        return total;</span>
+    }
+
+    private BigDecimal calculateValueTariffWithoutTalkMore(BigDecimal value, Double minutes) {
+
+<span class="fc" id="L63">        BigDecimal total = value.multiply(BigDecimal.valueOf(minutes))</span>
+<span class="fc" id="L64">                .setScale(2, RoundingMode.HALF_UP);</span>
+
+<span class="fc" id="L66">        return total;</span>
+    }
+
+
+    private Optional&lt;Tariff&gt; getFixedTariff(Integer origin, Integer destiny) {
+
+<span class="fc" id="L72">        return repository.findByOriginAndDestiny(origin, destiny);</span>
+    }
+
+    private boolean isPlanValid(Integer plan) {
+
+<span class="fc bfc" id="L77" title="All 2 branches covered.">        if (plan.equals(PlanEnum.TALK_MORE_30.getValue()) ||</span>
+<span class="fc bfc" id="L78" title="All 2 branches covered.">                plan.equals(PlanEnum.TALK_MORE_60.getValue()) ||</span>
+<span class="fc bfc" id="L79" title="All 2 branches covered.">                plan.equals(PlanEnum.TALK_MORE_120.getValue())) {</span>
+
+<span class="fc" id="L81">            return true;</span>
+        }
+<span class="fc" id="L83">        return false;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>
