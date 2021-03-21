@@ -1,0 +1,11 @@
+br.com.vortx.tariff
+br.com.vortx.tariff.common
+br.com.vortx.tariff.configuration
+br.com.vortx.tariff.constants
+br.com.vortx.tariff.controller
+br.com.vortx.tariff.dto
+br.com.vortx.tariff.enumeration
+br.com.vortx.tariff.exception
+br.com.vortx.tariff.model
+br.com.vortx.tariff.repository
+br.com.vortx.tariff.service

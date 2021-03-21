@@ -1,0 +1,15 @@
+# Created at 2021-03-21T10:20:22.175
+WARNING: An illegal reflective access operation has occurred
+
+# Created at 2021-03-21T10:20:22.176
+WARNING: Illegal reflective access by pl.pojo.tester.internal.utils.FieldUtils (file:/C:/Users/andre/.m2/repository/pl/pojo/pojo-tester/0.7.6/pojo-tester-0.7.6.jar) to field java.lang.reflect.Field.modifiers
+
+# Created at 2021-03-21T10:20:22.177
+WARNING: Please consider reporting this to the maintainers of pl.pojo.tester.internal.utils.FieldUtils
+
+# Created at 2021-03-21T10:20:22.177
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+
+# Created at 2021-03-21T10:20:22.179
+WARNING: All illegal access operations will be denied in a future release
+

@@ -1,0 +1,7 @@
+br\com\vortx\tariff\service\CalculateTariffServiceTest.class
+br\com\vortx\tariff\exception\ExceptionResponseTest.class
+br\com\vortx\tariff\ApplicationTests.class
+br\com\vortx\tariff\controller\CalculateTariffControllerTest.class
+br\com\vortx\tariff\dto\ResponseDTOTest.class
+br\com\vortx\tariff\dto\RequestDTOTest.class
+br\com\vortx\tariff\model\TariffTest.class
