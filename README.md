@@ -8,7 +8,10 @@ API developed in Java 11 and with Spring Boot 2.4.4
 ## Using the API
 1. Request by Postman:
 Example:
-    Endpoint (url): http://localhost:8080/tariffs
+    Endpoint (url):
+
+        http://localhost:8080/tariffs
+    
     Http Verb: POST
     Body (Json):
 
@@ -27,10 +30,14 @@ Example:
         }
 
 2. Request by Swagger:
-Endpoint (url): http://localhost:8080/swagger-ui.html
+    Endpoint (url):
+
+        http://localhost:8080/swagger-ui.html
 
 3. JavaDoc
-Endpoint (uri): file:/.../workspace/Calculate-Tariff-Vortx/doc/index.html
+    Endpoint (uri):
+
+        file:/.../workspace/Calculate-Tariff-Vortx/doc/index.html
 
 ## Testing the API - Unitary Tests
 Run the test classes with JUnit Test.
