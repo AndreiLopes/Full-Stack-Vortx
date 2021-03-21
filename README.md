@@ -11,18 +11,18 @@ Example:
     Endpoint (url): http://localhost:8080/tariffs
     Http Verb: POST
     Body (Json):
-        {
+        ```{
             "origin": 11,
             "destiny": 17,
             "minutes": 80,
             "plan": 120
-        }
+        }```
 
     Response example:
-        {
+        ```{
             "valueWithPlan": 0.00,
             "valueWithoutPlan": 136.00
-        }
+        }```
 
 2. Request by Swagger:
 Endpoint (url): http://localhost:8080/swagger-ui.html
